@@ -171,8 +171,8 @@ export default function SignUpForm({}) {
     if (cachedUserCredential) {
       axios
         .post(
-          `https://csi6220-2-vm1.ucd.ie/backend/api/user/info?idTokenString=${cachedUserCredential}`
-          //`http://localhost:8001/api/user/info?idTokenString=${cachedUserCredential}`
+          //`https://csi6220-2-vm1.ucd.ie/backend/api/user/info?idTokenString=${cachedUserCredential}`
+          `http://18.201.43.160:8001/api/user/info?idTokenString=${cachedUserCredential}`
         ) //user info, json w/ true false
         .then(response => {
           setGlobalUserInfo(response.data);
@@ -220,8 +220,8 @@ export default function SignUpForm({}) {
     if (credential) {
       axios
         .post(
-          `https://csi6220-2-vm1.ucd.ie/backend/api/user/info?idTokenString=${credential}`
-          //`http://localhost:8001/api/user/info?idTokenString=${credential}`
+          //`https://csi6220-2-vm1.ucd.ie/backend/api/user/info?idTokenString=${credential}`
+          `http://18.201.43.160:8001/api/user/info?idTokenString=${credential}`
         ) //user info, json w/ true false
         .then(response => {
           setGlobalUserInfo(response.data);
@@ -280,8 +280,8 @@ export default function SignUpForm({}) {
     if (credential) {
       axios
         .post(
-          `https://csi6220-2-vm1.ucd.ie/backend/api/user/register?idTokenString=${credential}`
-          //`http://localhost:8001/api/user/register?idTokenString=${credential}`
+          //`https://csi6220-2-vm1.ucd.ie/backend/api/user/register?idTokenString=${credential}`
+          `http://18.201.43.160:8001/api/user/register?idTokenString=${credential}`
         )
         .then(response => {
           // setGlobalUserInfo(response.data);
@@ -323,8 +323,8 @@ export default function SignUpForm({}) {
     if (cachedUserCredential) {
       axios
         .post(
-          //`http://localhost:8001/api/user/delete?idTokenString=${cachedUserCredential}`
-          `https://csi6220-2-vm1.ucd.ie/backend/api/user/delete?idTokenString=${cachedUserCredential}`
+          `http://18.201.43.160:8001/api/user/delete?idTokenString=${cachedUserCredential}`
+          //`https://csi6220-2-vm1.ucd.ie/backend/api/user/delete?idTokenString=${cachedUserCredential}`
         )
         .then(response => {
           if (response.data.code === 200) {
@@ -431,8 +431,8 @@ export default function SignUpForm({}) {
     ) {
       axios
         .post(
-          `https://csi6220-2-vm1.ucd.ie/backend/api/user/updateNft?nftLink=${walletInput}&idTokenString=${cachedUserCredential}`
-          //`http://localhost:8001/api/user/updateNft?nftLink=${walletInput}&idTokenString=${cachedUserCredential}`
+          //`https://csi6220-2-vm1.ucd.ie/backend/api/user/updateNft?nftLink=${walletInput}&idTokenString=${cachedUserCredential}`
+          `http://18.201.43.160:8001/api/user/updateNft?nftLink=${walletInput}&idTokenString=${cachedUserCredential}`
         ) //Add Wallet address
         .then(response => {
           if (response.data.code === 200) {
@@ -517,8 +517,8 @@ export default function SignUpForm({}) {
     //
     axios
       .post(
-        `https://csi6220-2-vm1.ucd.ie/backend/api/attraction/feedback`
-        //`http://localhost:8001/api/user/test`
+        //`https://csi6220-2-vm1.ucd.ie/backend/api/attraction/feedback`
+        `http://18.201.43.160:8001/api/user/test`
       )
       .then(response => {
         onFeedbackModalClose();

@@ -188,8 +188,8 @@ export default function ContentDrawer() {
     } else {
       if (allowedLocation !== null) {
         const apiEndpoint =
-          'https://csi6220-2-vm1.ucd.ie/backend/api/user/update';
-        //const apiEndpoint = 'http://localhost:8001/api/user/update';
+          //'https://csi6220-2-vm1.ucd.ie/backend/api/user/update';
+         'http://18.201.43.160:8001/api/user/update';
         const cachedUserCredential = localStorage.getItem('userCredential');
 
         const placeHolder = attractionNameAlias;
@@ -200,8 +200,8 @@ export default function ContentDrawer() {
         const requestBody = {
           id_token: idToken,
           attraction_id: attractionID,
-          lat: allowedLocation.lat, //hardcoded for testing replace with geolocation variable
-          lng: allowedLocation.lng, //hardcoded for testing reaplace with geolocation variable
+           lat: 40.7794366,//allowedLocation.lat, hardcoded for testing replace with geolocation variable
+          lng: -73.963244,//allowedLocation.lng,  hardcoded for testing reaplace with geolocation variable
         };
 
         axios
@@ -426,7 +426,7 @@ export default function ContentDrawer() {
         `https://api.nftport.xyz/v0/mints/easy/urls`,
         {
           file_url: imageURL,
-          chain: 'polygon',
+          chain: 'polygon',//polygon is other chain option
           name: prompt_No_Adj,
           description: `You got the ${promptFromFunc} Badge.`,
           mint_to_address: nftWalletAddress,
@@ -570,6 +570,7 @@ export default function ContentDrawer() {
     return formattedDateTime;
   }
 
+
   return (
     <Drawer
       onClose={() => {
@@ -690,6 +691,7 @@ export default function ContentDrawer() {
                           if (attractionInfo) {
                             return (
                               <Flex
+                              // key={attraction}
                                 border="2px solid orangered"
                                 borderRadius="20px"
                                 marginTop="5px"
@@ -713,8 +715,7 @@ export default function ContentDrawer() {
                                 }
                               >
                                 <Flex
-                                  key={attraction}
-                                  // mb={4}
+                                  
                                   width="100%"
                                   flexDirection="column"
                                 >
@@ -845,6 +846,7 @@ export default function ContentDrawer() {
 
                     {areAllAttractionsTrue() && (
                       <FlipCard
+                      
                         frontContent={
                           <p>
                             <img

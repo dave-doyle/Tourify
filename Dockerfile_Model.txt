@@ -1,14 +1,17 @@
 # Use an official Python runtime as a parent image
 FROM python:3.11-slim
 
-# maintainance information
-MAINTAINER yuhan_jiao yuhan.jiao@ucdconnect.ie
+ENV PYTHONPATH /app/ML:$PYTHONPATH
+
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Add current directory code to working directory
-ADD . /app/
+# Add the contents of the ML directory to the working directory in the container
+ADD ML /app/ML
+
+# Copy requirements file to install dependencies
+COPY ML/requirements_api_ml.txt ./
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements_api_ml.txt
@@ -22,5 +25,5 @@ EXPOSE 5000
 # Define environment variable
 ENV NAME Flask-App
 
-# Run gunicorn server when the container launches
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "api_ml:app"]
+# Run Gunicorn server when the container launches
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "ML.api_ml:app"]

@@ -1,0 +1,27 @@
+# Stage 1: Build the Spring Boot application
+FROM maven:3.8.4-openjdk-17 AS build
+
+# Set the working directory for the backend
+WORKDIR /app
+
+# Copy only the necessary files for Maven to build
+COPY Backend/Tourify_Backend/pom.xml ./pom.xml
+COPY Backend/Tourify_Backend/src ./src
+
+# Execute the Maven build
+RUN mvn clean install
+
+# Stage 2: Create the final image
+FROM openjdk:17
+
+# Set the working directory for the application
+WORKDIR /app
+
+# Copy the compiled JAR file from the build stage
+COPY --from=build /app/target/*.jar app.jar
+
+# Expose port for the Spring Boot application
+EXPOSE 8001
+
+# The command to be executed after the container starts
+ENTRYPOINT ["java", "-jar", "app.jar"]

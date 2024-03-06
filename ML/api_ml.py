@@ -8,7 +8,7 @@ from flask_cors import CORS  # Import the CORS module
 from zipfile import ZipFile
 
 # Import the main_model and models list of taxi_locationIDs
-from models import models, main_model
+from ML.models import models, main_model
 
 # Your API definition
 app = Flask(__name__)

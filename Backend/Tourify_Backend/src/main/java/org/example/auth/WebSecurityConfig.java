@@ -65,7 +65,7 @@ public class WebSecurityConfig{
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://csi6220-2-vm1.ucd.ie/"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://18.201.43.160", "https://csi6220-2-vm1.ucd.ie","http://localhost","http://localhost:80","https://localhost:80","https://localhost:3000" ));
         configuration.setAllowedMethods(Arrays.asList("GET","POST","OPTIONS"));
         //Allow all request header fields
         configuration.setAllowedHeaders(Arrays.asList("*"));
