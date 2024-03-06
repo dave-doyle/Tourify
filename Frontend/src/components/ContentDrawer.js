@@ -189,7 +189,7 @@ export default function ContentDrawer() {
       if (allowedLocation !== null) {
         const apiEndpoint =
           //'https://csi6220-2-vm1.ucd.ie/backend/api/user/update';
-         'http://18.201.43.160:8001/api/user/update';
+         'http://34.244.182.238:8001/api/user/update';
         const cachedUserCredential = localStorage.getItem('userCredential');
 
         const placeHolder = attractionNameAlias;

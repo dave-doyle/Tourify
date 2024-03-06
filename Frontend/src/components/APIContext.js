@@ -45,7 +45,7 @@ const APIContextProvider = ({ children }) => {
       try {
         const response = await fetch(
           //'https://csi6220-2-vm1.ucd.ie/backend/api/attraction/getAllAttraction'
-          'http://18.201.43.160:8001/api/attraction/getAllAttraction'
+          'http://34.244.182.238:8001/api/attraction/getAllAttraction'
         );
         const data = await response.json(); //long/lat data
         const dataArray = data.data;
@@ -163,7 +163,7 @@ const APIContextProvider = ({ children }) => {
         if (currentModelTempParam && currentModelRainParam >= 0) {
           const response = await fetch(
             //`https://csi6220-2-vm1.ucd.ie/backend/api/attraction/getAllPrediction?temperature=${currentModelTempParam}&precipitation=${currentModelRainParam}`
-            `http://18.201.43.160:8001/api/attraction/getAllPrediction?temperature=${currentModelTempParam}&precipitation=${currentModelRainParam}`
+            `http://34.244.182.238:8001/api/attraction/getAllPrediction?temperature=${currentModelTempParam}&precipitation=${currentModelRainParam}`
           );
           const data = await response.json();
           const dataArray = data.data;
@@ -259,7 +259,7 @@ const APIContextProvider = ({ children }) => {
       try {
         const response = await fetch(
           //`https://csi6220-2-vm1.ucd.ie/backend/api/attraction/getOnePrediction?attraction_id=${attractionID}&predictionDays=${params[0].day}&temperatures=${params[0].temperature}&precipitation=${params[0].rain}`
-          `http://18.201.43.160:8001/api/attraction/getOnePrediction?attraction_id=${attractionID}&predictionDays=${params[0].day}&temperatures=${params[0].temperature}&precipitation=${params[0].rain}`
+          `http://34.244.182.238:8001/api/attraction/getOnePrediction?attraction_id=${attractionID}&predictionDays=${params[0].day}&temperatures=${params[0].temperature}&precipitation=${params[0].rain}`
         );
         const data = await response.json();
         const dataArray = data.data.attractionPredictionDetailVOList;
