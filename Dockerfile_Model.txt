@@ -1,0 +1,29 @@
+# Use an official Python runtime as a parent image
+FROM python:3.11-slim
+
+ENV PYTHONPATH /app/ML:$PYTHONPATH
+
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Add the contents of the ML directory to the working directory in the container
+ADD ML /app/ML
+
+# Copy requirements file to install dependencies
+COPY ML/requirements_api_ml.txt ./
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements_api_ml.txt
+
+# Install Gunicorn
+RUN pip install gunicorn
+
+# Make port available to the world outside this container
+EXPOSE 5000
+
+# Define environment variable
+ENV NAME Flask-App
+
+# Run Gunicorn server when the container launches
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "ML.api_ml:app"]
